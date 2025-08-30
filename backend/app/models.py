@@ -3,6 +3,8 @@ from database import Base
 
 
 class Ecoponto(Base):
+    """Esta classe representa um ecoponto."""
+
     __tablename__ = "tbEcoponto"
     id = Column(Integer, primary_key=True, autoincrement=True)
     nome_local = Column(String(100), nullable=False)

@@ -9,9 +9,12 @@ Session = sessionmaker(bind=engine)
 
 
 def get_db():
+    """Função que administra o ciclo de vida do banco de dados.
+    Cria uma sessão toda vez que a função é chamada."""
+
     session = Session()
 
     try:
-        yield session
+        yield session  # Garante que a função só termina depois que a sessão é finalizada
     finally:
         session.close()
