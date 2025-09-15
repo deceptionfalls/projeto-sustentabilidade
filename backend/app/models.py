@@ -9,6 +9,7 @@ class Ecoponto(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     nome_local = Column(String(100), nullable=False)
     endereco = Column(String(200), nullable=False)
+    imagem_url = Column(String, nullable=True)
     cidade = Column(String(50), nullable=False)
     estado = Column(String(2), nullable=False)
     telefone = Column(String(9), nullable=True)

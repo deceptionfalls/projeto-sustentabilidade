@@ -8,6 +8,7 @@ class EcopontoOutput(BaseModel):
     id: int
     nome_local: str
     endereco: str
+    imagem_url: str
     cidade: str
     estado: str
     telefone: Optional[str] = None
