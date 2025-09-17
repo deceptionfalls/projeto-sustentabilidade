@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+    --bg-dark: #25412B;
+    --bg-light: #CEE1A3;
+    --text-white: #F2E8CF;
+    --text-dark-brown: #413939;
+    --text-light-brown: #987D7C;
+    --text-light-ivory: #CCB7B7;
+    --accent-green: #A7C957;
+    --accent-red: #C95757;
+}
