@@ -15,7 +15,7 @@ class EcopontoOutput(BaseModel):
     latitude: float
     longitude: float
     hora_aberto: Optional[str] = None
-    hora_fecha: Optional[str] = None
+    hora_fechado: Optional[str] = None
     distancia: float
     aceita_entulho: bool
     aceita_construcao: bool

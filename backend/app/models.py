@@ -16,7 +16,7 @@ class Ecoponto(Base):
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
     hora_aberto = Column(Time, nullable=True)
-    hora_fecha = Column(Time, nullable=True)
+    hora_fechado = Column(Time, nullable=True)
     aceita_entulho = Column(Boolean, default=False, nullable=False)
     aceita_construcao = Column(Boolean, default=False, nullable=False)
     aceita_papel = Column(Boolean, default=False, nullable=False)
