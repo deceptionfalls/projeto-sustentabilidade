@@ -1,13 +1,12 @@
+# pylint: disable=import-error
 from typing import Annotated, Optional, List
 from fastapi import FastAPI, Depends
 from sqlalchemy import Session
-from pydantic import BaseModel
 
-from models import Ecoponto
 from schemas import EcopontoOutput, LocationQuery
 from database import get_db
 from geocoding import get_coordinates_from_cep
-from helpers import calcular_distancia, filtrar_pesquisa, organizar_locais
+from helpers import filtrar_pesquisa, organizar_locais
 
 app = FastAPI()
 

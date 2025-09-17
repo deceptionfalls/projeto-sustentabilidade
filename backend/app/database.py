@@ -1,3 +1,4 @@
+# pylint: disable=import-error
 from sqlalchemy import create_engine, declarative_base
 from sqlalchemy.orm import sessionmaker
 from config import settings

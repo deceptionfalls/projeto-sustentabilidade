@@ -1,3 +1,4 @@
+# pylint: disable=import-error
 from sqlalchemy import Integer, String, Column, Boolean, Float, Time
 from database import Base
 

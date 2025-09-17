@@ -1,3 +1,4 @@
+# pylint: disable=import-error
 import httpx
 from fastapi import HTTPException
 

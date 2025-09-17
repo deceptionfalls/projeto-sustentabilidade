@@ -1,3 +1,4 @@
+# pylint: disable=import-error
 from math import radians, sin, cos, asin, sqrt
 from typing import Optional, List
 from sqlalchemy import Session
