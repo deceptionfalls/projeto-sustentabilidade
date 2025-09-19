@@ -1,10 +1,15 @@
 # pylint: disable=import-error
 from math import radians, sin, cos, asin, sqrt
-from typing import Optional, List
+from typing import Annotated, Optional, List
+
 from sqlalchemy import Session
+from fastapi import Depends
+
+from database import get_db
 from models import Ecoponto
 
 
+# Sinceramente, eu poderia usar uma biblioteca externa para fazer esse cálculo, mas eu queria me exibir
 def calcular_distancia(
     user_lat: float, user_lon: float, local_lat: float, local_lon: float
 ) -> float:
@@ -34,14 +39,14 @@ def calcular_distancia(
 
 # TODO: Adicionar uma maneira de filtar locais pelo horário de abertura/fechamento
 def filtrar_pesquisa(
-    db: Session,
-    filtro_tipo_lixo_aceito: Optional[str] = None,
-    filtro_cidade: Optional[str] = None,
-    filtro_estado: Optional[str] = None,
+    db: Annotated[Session, Depends(get_db)],
+    tipo_lixo_aceito: Optional[str] = None,
+    cidade: Optional[str] = None,
+    estado: Optional[str] = None,
 ) -> List[Ecoponto]:
     """Função helper que processa os filtros da pesquisa"""
 
-    tipos_lixo = {
+    opcoes = {
         "entulho": Ecoponto.aceita_entulho,
         "construcao": Ecoponto.aceita_construcao,
         "papel": Ecoponto.aceita_papel,
@@ -59,14 +64,14 @@ def filtrar_pesquisa(
     db_query = db.query(Ecoponto)
 
     if (
-        filtro_tipo_lixo_aceito is not None and filtro_tipo_lixo_aceito in tipos_lixo
+        tipo_lixo_aceito is not None and tipo_lixo_aceito in opcoes
     ):  # pylint: disable=singleton-comparison
-        coluna = tipos_lixo[filtro_tipo_lixo_aceito]
+        coluna = opcoes[tipo_lixo_aceito]
         db_query = db_query.filter(coluna == True)
-    if filtro_estado is not None:
-        db_query = db_query.filter(Ecoponto.estado == filtro_estado)
-    if filtro_cidade is not None:
-        db_query = db_query.filter(Ecoponto.cidade == filtro_cidade)
+    if estado is not None:
+        db_query = db_query.filter(Ecoponto.estado == estado)
+    if cidade is not None:
+        db_query = db_query.filter(Ecoponto.cidade == cidade)
 
     return db_query.all()
 
