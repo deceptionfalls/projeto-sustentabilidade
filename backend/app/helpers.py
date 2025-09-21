@@ -89,5 +89,12 @@ def organizar_locais(
         location.distancia = calcular_distancia(
             user_lat, user_lon, location.latitude, location.longitude
         )
+        # Conversão de tempo para string
+        location.hora_aberto = (
+            str(location.hora_fechado) if location.hora_fechado else None
+        )
+        location.hora_aberto = (
+            str(location.hora_aberto) if location.hora_aberto else None
+        )
 
     return sorted(locations, key=lambda x: x.distancia)
