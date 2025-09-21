@@ -3,11 +3,11 @@
 from math import radians, sin, cos, asin, sqrt
 from typing import Annotated, Optional, List
 
-from sqlalchemy import Session
+from sqlalchemy.orm import Session
 from fastapi import Depends
 
-from database import get_db
-from models import Ecoponto
+from .database import get_db
+from .models import Ecoponto
 
 
 # Sinceramente, eu poderia usar uma biblioteca externa para fazer esse cálculo, mas eu queria me exibir

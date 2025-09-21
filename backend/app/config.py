@@ -1,5 +1,11 @@
 # pylint: disable=import-error
-from pydantic import BaseSettings
+import os
+from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
+
+load_dotenv()
+
+APP_DB_URL = os.getenv("APP_DB_URL")
 
 
 class Settings(BaseSettings):

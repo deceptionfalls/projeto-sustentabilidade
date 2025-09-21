@@ -2,12 +2,12 @@
 from typing import Annotated, List
 
 from fastapi import FastAPI, Depends
-from sqlalchemy import Session
+from sqlalchemy.orm import Session
 
-from schemas import EcopontoOutput, LocationQuery
-from database import get_db
-from geocoding import get_coordinates_from_cep
-from helpers import filtrar_pesquisa, organizar_locais
+from .schemas import EcopontoOutput, LocationQuery
+from .database import get_db
+from .geocoding import get_coordinates_from_cep
+from .helpers import filtrar_pesquisa, organizar_locais
 
 app = FastAPI()
 
@@ -21,8 +21,8 @@ async def get_all_ecopontos():
 
 @app.get("/ecopontos/buscar/", response_model=List[EcopontoOutput])
 async def buscar_ecopontos(
-    query: LocationQuery,
     db: Annotated[Session, Depends(get_db)],
+    query: LocationQuery = Depends(),
 ):
     """Busca localizações baseada no CEP e nos filtros em LocationQuery"""
 

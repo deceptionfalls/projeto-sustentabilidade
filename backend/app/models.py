@@ -1,6 +1,7 @@
 # pylint: disable=import-error
 from sqlalchemy import Integer, String, Column, Boolean, Float, Time
-from database import Base
+
+from .database import Base
 
 
 class Ecoponto(Base):
