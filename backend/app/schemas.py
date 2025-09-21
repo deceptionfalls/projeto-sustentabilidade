@@ -35,5 +35,8 @@ class EcopontoOutput(BaseModel):
 class LocationQuery(BaseModel):
     """Esta classe define e valida a informação de busca que a API receberá do frontend."""
 
-    cep: str
+    cep: Optional[str] = None
     tipo_lixo_aceito: Optional[str] = None
+    excluir_tipo_lixo: Optional[str] = None
+    cidade: Optional[str] = None
+    estado: Optional[str] = None
