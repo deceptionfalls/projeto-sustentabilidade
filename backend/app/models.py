@@ -9,10 +9,10 @@ class Ecoponto(Base):
 
     __tablename__ = "tbEcoponto"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    nome_local = Column(String(100), nullable=False)
-    endereco = Column(String(200), nullable=False)
+    nome_local = Column(String, nullable=False)
+    endereco = Column(String, nullable=False)
     imagem_url = Column(String, nullable=True)
-    cidade = Column(String(50), nullable=False)
+    cidade = Column(String, nullable=False)
     estado = Column(String(2), nullable=False)
     telefone = Column(String(9), nullable=True)
     latitude = Column(Float, nullable=False)
