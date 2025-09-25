@@ -1,4 +1,5 @@
 import './index.css';
+import Statistics from './components/Statistics';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -79,22 +80,10 @@ function App() {
 
             {/* Estatísticas */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <p className="text-3xl font-montserrat font-bold">32</p>
-                <p className="text-xs font-montserrat font-semibold">Estatística</p>
-              </div>
-              <div>
-                <p className="text-3xl font-montserrat font-bold">23 mi.</p>
-                <p className="text-xs font-montserrat font-semibold">Estatística</p>
-              </div>
-              <div>
-                <p className="text-3xl font-montserrat font-bold">1k</p>
-                <p className="text-xs font-montserrat font-semibold">Estatística</p>
-              </div>
-              <div>
-                <p className="text-3xl font-montserrat font-bold">3</p>
-                <p className="text-xs font-montserrat font-semibold">Estatística</p>
-              </div>
+              <Statistics statNumber="32" statName="Estatística" />
+              <Statistics statNumber="23 mi." statName="Estatística" />
+              <Statistics statNumber="1k" statName="Estatística" />
+              <Statistics statNumber="3" statName="Estatística" />
             </div>
           </div>
         </div>
