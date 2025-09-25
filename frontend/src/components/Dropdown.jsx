@@ -35,7 +35,7 @@ function Dropdown() {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-white font-semibold text-xl font-montserrat"
+        className="flex items-center gap-1 text-[var(--accent-green)] font-semibold text-xl font-montserrat"
       >
         Sustentabilidade
         <svg
@@ -50,11 +50,12 @@ function Dropdown() {
       </button>
 
       {open && (
-        <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-md shadow-lg z-50 font-montserrat font-semibold overflow-hidden">
-          <a href="#" className="block px-4 py-2 hover:bg-green-200">Item 1</a>
-          <a href="#" className="block px-4 py-2 hover:bg-green-200">Item 2</a>
-          <a href="#" className="block px-4 py-2 hover:bg-green-200">Item 3</a>
+        <div className="absolute left-0 mt-2 w-48 bg-[var(--accent-green)] text-[#365B12] rounded-md shadow-lg z-50 font-montserrat font-semibold overflow-hidden">
+          <a href="#" className="block px-4 py-2 hover:bg-[#a8c78a]">Item 1</a>
+          <a href="#" className="block px-4 py-2 hover:bg-[#a8c78a]">Item 2</a>
+          <a href="#" className="block px-4 py-2 hover:bg-[#a8c78a]">Item 3</a>
         </div>
+
       )}
 
     </div>
