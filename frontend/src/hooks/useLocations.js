@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// Obtém a informação sobre um ecoponto localizada no back-end
 function useLocations(params) {
 
     const [data, setData] = useState([]);
