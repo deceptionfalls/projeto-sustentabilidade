@@ -46,7 +46,7 @@ function App() {
       </main>
 
       {/* Seção 01 */}
-      <section className="bg-[var(--accent-green)] text-[#365B12] px-6 lg:px-20 py-20 rounded-t-[100%_50px]">
+      <section className="bg-[var(--accent-green)] text-[#25412B] px-6 lg:px-20 py-20 rounded-t-[100%_50px]">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8">
           {/* Imagem + autor */}
           <div className="relative md:flex-shrink-0">
@@ -70,7 +70,7 @@ function App() {
           {/* Texto + estatísticas */}
           <div className="flex-1 md:ml-6 text-center md:text-left">
             <span className="block text-xl font-krona font-bold mb-2">01.</span>
-            <h2 className="text-2xl font-krona font-bold mb-4">
+            <h2 className="text-2xl font-krona font-semibold mb-4">
               POR QUE DEVEMOS <br /> NOS IMPORTAR?
             </h2>
             <p className="text-base font-montserrat mb-8 text-justify">
@@ -97,7 +97,7 @@ function App() {
             {/* Coluna do título */}
             <div className="md:col-span-1 text-center md:text-left">
               <span className="block text-xl font-krona font-bold mb-3">02.</span>
-              <h2 className="text-2xl md:text-3xl font-krona font-bold leading-tight">
+              <h2 className="text-2xl font-krona font-semibold mb-4">
                 COMO <br /> PODEMOS <br /> AJUDAR?
               </h2>
             </div>
@@ -168,6 +168,79 @@ function App() {
               <p className="text-xs font-montserrat mt-1">
                 Lorem ipsum dolor sit amet consectetur.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção 03 - Sobre Nós */}
+      <section className="bg-[var(--accent-green)] text-[#25412B] px-6 lg:px-20 py-20">
+        <div className="max-w-5xl mx-auto">
+          {/* Cabeçalho */}
+          <span className="block text-xl font-krona font-bold mb-2">03.</span>
+          <h2 className="text-2xl font-krona font-semibold mb-4">SOBRE NÓS</h2>
+          <p className="text-base font-montserrat mb-12 max-w-3xl">
+            Este website foi feito por estas pessoas como parte do <br />Projeto de Extensão da 
+            Unidrummond Tatuapé.
+          </p>
+
+          {/* Cards de membros */}
+          <div className="flex flex-col sm:flex-row justify-center gap-30">
+            {/* Membro 1 */}
+            <div className="flex flex-col items-center text-center">
+              <img
+                src="/assets/denis.jpg"
+                alt="Denis"
+                className="w-32 h-32 rounded-full object-cover mb-4"
+              />
+              <h3 className="text-base md:text-lg font-krona font-bold">Denis</h3>
+              <p className="text-sm font-montserrat">Front-end, Design</p>
+              <div className="flex gap-4 mt-2">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/gith.png" alt="GitHub" className="w-6 h-6" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+                </a>
+              </div>
+            </div>
+
+            {/* Membro 2 */}
+            <div className="flex flex-col items-center text-center">
+              <img
+                src="/assets/vini.jpg"
+                alt="Vinicius"
+                className="w-32 h-32 rounded-full object-cover mb-4"
+              />
+              <h3 className="text-base md:text-lg font-krona font-bold">Vinicius</h3>
+              <p className="text-sm font-montserrat">Back-end</p>
+              <div className="flex gap-4 mt-2">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/gith.png" alt="GitHub" className="w-6 h-6" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+                </a>
+              </div>
+            </div>
+
+            {/* Membro 3 */}
+            <div className="flex flex-col items-center text-center">
+              <img
+                src="/assets/igor.jpg"
+                alt="Igor"
+                className="w-32 h-32 rounded-full object-cover mb-4"
+              />
+              <h3 className="text-base md:text-lg font-krona font-bold">Igor</h3>
+              <p className="text-sm font-montserrat">Banco de Dados</p>
+              <div className="flex gap-4 mt-2">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/gith.png" alt="GitHub" className="w-6 h-6" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
