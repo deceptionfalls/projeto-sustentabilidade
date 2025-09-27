@@ -28,7 +28,7 @@ function Navbar() {
           <nav className="flex gap-6">
             <Dropdown />
             <a
-              href="#"
+              href="#section3"
               className="text-[var(--accent-green)] font-semibold text-xl font-montserrat relative after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[3px] after:w-0 after:bg-[var(--accent-green)] after:transition-all hover:after:w-full"
             >
               Sobre Nós

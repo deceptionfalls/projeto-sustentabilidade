@@ -1,18 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-
 @theme {
-    --font-display: 'Inter', 'sans-serif';
-    --font-montserrat: 'Montserrat', 'sans-serif';
-    --font-krona: 'Krona One', 'sans-serif';
+  --font-display: 'Inter', 'sans-serif';
+  --font-montserrat: 'Montserrat', 'sans-serif';
+  --font-krona: 'Krona One', 'sans-serif';
 
-    --bg-dark: #25412B;
-    --bg-light: #CEE1A3;
-    --text-white: #F2E8CF;
-    --text-dark-brown: #413939;
-    --text-light-brown: #987D7C;
-    --text-light-ivory: #CCB7B7;
-    --accent-green: #CEE1A3;
-    --accent-red: #C95757;
+  --bg-dark: #25412B;
+  --bg-light: #CEE1A3;
+  --text-white: #F2E8CF;
+  --text-dark-brown: #413939;
+  --text-light-brown: #987D7C;
+  --text-light-ivory: #CCB7B7;
+  --accent-green: #CEE1A3;
+  --accent-red: #C95757;
+}
+
+/* Animação Slide In Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Delays */
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-600 {
+  animation-delay: 0.6s;
+}
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+/* Suavizar rolagem */
+html {
+  scroll-behavior: smooth;
 }
