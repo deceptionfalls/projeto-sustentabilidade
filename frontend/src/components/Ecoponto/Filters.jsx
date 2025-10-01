@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function Filters() {
   return (
-    <section className="filters mb-6">
+    <div className="bg-white/60 p-4 rounded-md shadow-md">
       <h2 className="text-xl font-semibold mb-2">Filtros</h2>
       <input
         type="text"
-        placeholder="Nome"
-        className="input border border-gray-300 rounded p-2 w-full"
+        placeholder="Buscar por nome..."
+        className="w-full p-2 border border-gray-300 rounded-md"
       />
-    </section>
+    </div>
   );
 }

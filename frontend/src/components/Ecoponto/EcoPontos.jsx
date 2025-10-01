@@ -3,21 +3,26 @@ import Filters from './Filters';
 import LocationCard from './LocationCard';
 
 export default function EcoPontos() {
-  const [locations, setLocations] = useState([
+  const [locations] = useState([
     {
       id: 1,
       name: 'Aricanduva I',
       address: 'Avenida Aricanduva, 200',
-      image: '/path/to/image.jpg',
+      image: '/assets/ecoponto1.jpg', // Certifique-se que essa imagem existe
     },
-    // outros locais...
+    {
+      id: 2,
+      name: 'Tatuapé',
+      address: 'Rua Tatuapé, 300',
+      image: '/assets/ecoponto2.jpg',
+    },
   ]);
 
   return (
-    <main className="p-8">
-      <h1 className="text-2xl font-bold mb-6">Pesquisa de Eco-pontos</h1>
+    <main>
+      <h1 className="text-3xl font-bold mb-6">Pesquisa de Eco-pontos</h1>
       <Filters />
-      <section className="locations grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {locations.map(loc => (
           <LocationCard key={loc.id} data={loc} />
         ))}
