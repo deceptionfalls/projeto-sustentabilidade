@@ -11,21 +11,21 @@ export default function SectionThree() {
     >
       <div className="max-w-5xl mx-auto">
         <span
-          className={`block text-xl font-krona font-bold mb-2 transition-all duration-700 ${
+          className={`block text-2xl font-krona font-bold mb-2 transition-all duration-700 ${
             sobreNosVisible ? 'animate-slideInLeft' : 'opacity-0'
           }`}
         >
           03.
         </span>
         <h2
-          className={`text-2xl font-krona font-semibold mb-4 transition-all duration-700 ${
+          className={`text-4xl font-krona font-semibold mb-4 transition-all duration-700 ${
             sobreNosVisible ? 'animate-slideInLeft' : 'opacity-0'
           }`}
         >
           SOBRE NÓS
         </h2>
         <p
-          className={`text-base font-montserrat mb-12 max-w-3xl transition-all duration-700 ${
+          className={`text-2xl font-montserrat mb-12 max-w-3xl transition-all duration-700 ${
             sobreNosVisible ? 'animate-slideInLeft' : 'opacity-0'
           }`}
         >
@@ -43,16 +43,16 @@ export default function SectionThree() {
             <img
               src="/assets/denis.jpg"
               alt="Denis"
-              className="w-36 h-36 rounded-full object-cover mb-4"
+              className="w-48 h-48 rounded-full object-cover mb-4"
             />
-            <h3 className="text-lg md:text-xl font-krona font-bold">Denis</h3>
-            <p className="text-sm font-semibold font-montserrat">Front-end, Design</p>
+            <h3 className="text-4xl md:text-xl font-krona font-bold">Denis</h3>
+            <p className="text-2xl font-semibold font-montserrat">Front-end, Design</p>
             <div className="flex gap-4 mt-2">
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/gith.png" alt="GitHub" className="w-8 h-8" />
+                <img src="/assets/gith.png" alt="GitHub" className="w-12 h-12" />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/linkedin.png" alt="LinkedIn" className="w-8 h-8" />
+                <img src="/assets/linkedin.png" alt="LinkedIn" className="w-12 h-12" />
               </a>
             </div>
           </div>
@@ -66,16 +66,16 @@ export default function SectionThree() {
             <img
               src="/assets/vini.jpg"
               alt="Vinicius"
-              className="w-36 h-36 rounded-full object-cover mb-4"
+              className="w-48 h-48 rounded-full object-cover mb-4"
             />
-            <h3 className="text-lg md:text-xl font-krona font-bold">Vinicius</h3>
-            <p className="text-sm font-semibold font-montserrat">Back-end</p>
+            <h3 className="text-4xl md:text-xl font-krona font-bold">Vinicius</h3>
+            <p className="text-2xl font-semibold font-montserrat">Back-end</p>
             <div className="flex gap-4 mt-2">
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/gith.png" alt="GitHub" className="w-8 h-8" />
+                <img src="/assets/gith.png" alt="GitHub" className="w-12 h-12" />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/linkedin.png" alt="LinkedIn" className="w-8 h-8" />
+                <img src="/assets/linkedin.png" alt="LinkedIn" className="w-12 h-12" />
               </a>
             </div>
           </div>
@@ -89,16 +89,16 @@ export default function SectionThree() {
             <img
               src="/assets/igor.jpg"
               alt="Igor"
-              className="w-36 h-36 rounded-full object-cover mb-4"
+              className="w-48 h-48 rounded-full object-cover mb-4"
             />
-            <h3 className="text-lg md:text-xl font-krona font-bold">Igor</h3>
-            <p className="text-sm font-semibold font-montserrat">Banco de Dados</p>
+            <h3 className="text-4xl md:text-xl font-krona font-bold">Igor</h3>
+            <p className="text-2xl font-semibold font-montserrat">Banco de Dados</p>
             <div className="flex gap-4 mt-2">
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/gith.png" alt="GitHub" className="w-8 h-8" />
+                <img src="/assets/gith.png" alt="GitHub" className="w-12 h-12" />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/linkedin.png" alt="LinkedIn" className="w-8 h-8" />
+                <img src="/assets/linkedin.png" alt="LinkedIn" className="w-12 h-12" />
               </a>
             </div>
           </div>

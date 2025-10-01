@@ -2,11 +2,11 @@ export default function Hero() {
   return (
     <main className="flex flex-col items-start justify-start text-left px-6 py-56 max-w-screen-lg mx-auto mb-15">
       <section>
-        <h1 className="text-3xl font-krona mt-13 leading-snug animate-slideInLeft">
+        <h1 className="text-4xl font-krona mt-7 leading-snug animate-slideInLeft">
           <strong>Tecnologia em harmonia <br />com a natureza</strong> <br />
         </h1>
 
-        <p className="text-lg mt-6 font-montserrat animate-slideInLeft">
+        <p className="text-2xl mt-6 font-montserrat animate-slideInLeft">
           Um futuro tecnológico só é possível com responsabilidade ambiental. <br />Sustentabilidade também é pensar no impacto invisível dos eletrônicos <br />que usamos todos os dias.
         </p>
 

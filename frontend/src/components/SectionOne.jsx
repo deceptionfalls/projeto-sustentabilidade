@@ -26,11 +26,11 @@ export default function SectionOne() {
         </div>
 
         <div className="flex-1 md:ml-6 text-center md:text-left">
-          <span className="block text-xl font-krona font-bold mb-2">01.</span>
-          <h2 className="text-2xl font-krona font-semibold mb-4">
+          <span className="block text-2xl font-krona font-bold mb-2">01.</span>
+          <h2 className="text-4xl font-krona font-semibold mb-4">
             POR QUE DEVEMOS <br /> NOS IMPORTAR?
           </h2>
-          <p className="text-base font-montserrat mb-8 text-justify">
+          <p className="text-2xl font-montserrat mb-8 text-justify">
             Lorem ipsum dolor sit amet consectetur. Augue in amet sed dolor nisi sagittis.
             Enim sit nulla dui vitae aliquam dictum cras habitant.
           </p>
