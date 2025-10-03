@@ -1,34 +1,89 @@
 import './index.css';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import SectionOne from './components/SectionOne';
-import SectionTwo from './components/SectionTwo';
-import SectionThree from './components/SectionThree';
 import Footer from './components/Footer';
 
-// Importando os componentes do Ecoponto
-import EcoPontos from './components/Ecoponto/EcoPontos';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+
+import ScrollToTop from './components/ScrollToTop'; 
+
+import EcoNavbar from './components/EcoNavbar';
+import HomePage from './pages/HomePage'; 
+import EcoPontosPage from './pages/EcoPontosPage'; 
+import LoadingSpinner from './components/LoadingSpinner';
+
+const AnimatedRoutes = () => {
+    const location = useLocation();
+
+    const isEcopontosPage = location.pathname === '/ecopontos';
+    const CurrentNavbar = isEcopontosPage ? EcoNavbar : Navbar;
+
+    const pageTransition = {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.3 }
+    };
+
+    return (
+        <div
+            className="min-h-screen bg-fixed bg-cover bg-center font-montserrat scroll-smooth"
+            style={{ backgroundImage: isEcopontosPage ? 'none' : "url('/assets/bghome.jpg')" }}
+        >
+            <CurrentNavbar />
+
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    
+                    <Route 
+                        path="/" 
+                        element={
+                            <motion.div {...pageTransition} className="min-h-screen">
+                                <HomePage />
+                            </motion.div>
+                        } 
+                    />
+                    
+                    <Route 
+                        path="/ecopontos" 
+                        element={
+                            <motion.div {...pageTransition} className="min-h-screen">
+                                <EcoPontosPage />
+                            </motion.div>
+                        } 
+                    />
+                    
+                    <Route path="*" element={<div className="text-center py-20">Página Não Encontrada (404)</div>} />
+                </Routes>
+            </AnimatePresence>
+            
+            <Footer />
+        </div>
+    );
+}
 
 function App() {
-  return (
-    <div
-      className="min-h-screen bg-fixed bg-cover bg-center text-[var(--accent-green)] font-montserrat scroll-smooth"
-      style={{ backgroundImage: "url('/assets/bghome.jpg')" }}
-    >
-      <Navbar />
-      <Hero />
-      <SectionOne />
-      <SectionTwo />
-      <SectionThree />
+    const [isAppLoading, setIsAppLoading] = useState(true);
 
-      {/* Nova seção para EcoPontos */}
-      <section id="ecopontos" className="py-20 px-[10%] bg-white/90 text-black">
-        <EcoPontos />
-      </section>
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsAppLoading(false);
+        }, 500); 
 
-      <Footer />
-    </div>
-  );
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isAppLoading) {
+        return <LoadingSpinner />;
+    }
+
+    return (
+        <BrowserRouter>
+            <ScrollToTop />
+            <AnimatedRoutes />
+        </BrowserRouter>
+    );
 }
 
 export default App;

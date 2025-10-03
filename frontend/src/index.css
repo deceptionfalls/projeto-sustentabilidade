@@ -50,3 +50,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* REGRAS DE JUSTIFICAÇÃO E Hifenização */
+.text-justify {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  overflow-wrap: break-word; 
+  word-break: normal;
+}
