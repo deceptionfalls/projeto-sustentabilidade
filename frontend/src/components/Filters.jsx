@@ -2,6 +2,7 @@ import React from "react";
 import TextInput from "./TextInput";
 import SelectInput from "./SelectInput";
 import CheckboxInput from "./CheckboxInput";
+import useCities from "../hooks/useCities";
 
 const Filters = (
     {
@@ -12,6 +13,7 @@ const Filters = (
         onFilterModeChange,
     },
 ) => {
+    const { cities, loading } = useCities();
     const inputClass =
         "p-2 border border-[var(--bg-dark)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--bg-dark)] font-montserrat text-[var(--bg-dark)]";
     return (
@@ -32,14 +34,43 @@ const Filters = (
                     value={geographicFilters.cidade}
                     onChange={onFilterChange}
                     name="cidade"
-                    options={["", "São Paulo", "Mauá", "Sorocaba"]}
+                    options={loading ? [] : [""].concat(cities)}
                 />
                 <SelectInput
                     label="Estado"
                     value={geographicFilters.estado}
                     onChange={onFilterChange}
                     name="estado"
-                    options={["", "SP", "RJ", "MG"]}
+                    options={[
+                        "",
+                        "AC",
+                        "AL",
+                        "AP",
+                        "AM",
+                        "BA",
+                        "CE",
+                        "DF",
+                        "ES",
+                        "GO",
+                        "MA",
+                        "MT",
+                        "MS",
+                        "MG",
+                        "PA",
+                        "PB",
+                        "PR",
+                        "PE",
+                        "PI",
+                        "RJ",
+                        "RN",
+                        "RS",
+                        "RO",
+                        "RR",
+                        "SC",
+                        "SP",
+                        "SE",
+                        "TO",
+                    ]}
                 />
                 <TextInput
                     label="CEP"

@@ -24,15 +24,9 @@ def calcular_distancia(
     delta_lat = local_lat - user_lat
     delta_lon = local_lon - user_lon
 
-    # fórmula de haversine
-    def haversine(a):
-        return sin((a / 2)) ** 2
-
-    hav_lat, hav_lon = haversine(delta_lat), haversine(delta_lon)
-
-    # combinando os termos e calculando o ângulo central
-    a = hav_lat + cos(user_lat) * cos(local_lat) * hav_lon
-    c = 2 * asin((sqrt(a)))
+    # aplicando haversine
+    a = sin(delta_lat/2)**2 + cos(user_lat) * cos(user_lon) * sin(delta_lon /2)**2
+    c = 2 * asin(sqrt(a))
 
     # c multiplicado pela circunferência da terra
     return c * 6371
@@ -56,12 +50,20 @@ def filtrar_pesquisa(
 
 
 def organizar_locais(
-    locations: List[Ecoponto], user_lat: float, user_lon: float
+        locations: List[Ecoponto], user_lat: float, user_lon: float, max_distance: float = 50.0
 ) -> List[Ecoponto]:
     """Função helper que organiza localizações por proximidade"""
+    locations_with_distance = []
+    print(f"Processing {len(locations)} locations, max_distance: {max_distance}")
+
     for location in locations:
-        location.distancia = calcular_distancia(
+        distance = calcular_distancia(
             user_lat, user_lon, location.latitude, location.longitude
         )
+        print(f"Location {location.nome_local}: {distance:.2f}km")
+        if distance <= max_distance:
+            location.distancia = distance
+            locations_with_distance.append(location)
 
-    return sorted(locations, key=lambda x: x.distancia)
+    print(f"Returning {len(locations_with_distance)} locations after distance filter")
+    return sorted(locations_with_distance, key=lambda x: x.distancia)

@@ -5,6 +5,7 @@ from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
+from .models import Ecoponto
 from .schemas import EcopontoOutput, LocationQuery
 from .database import Base, engine, get_db
 from .geocoding import get_coordinates_from_cep
@@ -50,3 +51,10 @@ async def buscar_ecopontos(
         return locais_organizados
     else:
         return locais
+
+@app.get("/cidades/")
+async def get_cidades(db: Annotated[Session, Depends(get_db)]):
+    """Retorna lista de cidades únicas presentes no banco de dados"""
+
+    cidades = db.query(Ecoponto.cidade).distinct().all()
+    return [cidade[0] for cidade in cidades if cidade[0]]

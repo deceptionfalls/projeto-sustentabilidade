@@ -20,12 +20,6 @@ function CheckboxInput(
                             className="mr-2 h-4 w-4 text-[var(--bg-dark)] rounded-sm border-[var(--bg-dark)] accent-[var(--bg-dark)]"
                             value={option.key}
                             onChange={(e) => {
-                                console.log(
-                                    "Checkbox event - checked:",
-                                    e.target.checked,
-                                    "sending checked param:",
-                                    e.target.checked,
-                                );
                                 onChange(
                                     name,
                                     option.key,

@@ -10,16 +10,25 @@ async def get_coordinates_from_cep(cep: str):
         "Accept-Language": "pt-BR",
     }
 
-    params = {
-        "q": cep + ", Brazil",
-        "format": "json",
-        "addressdetails": 1,
-        "limit": 1,
-    }
-
-    url = "https://nominatim.openstreetmap.org/search"
-
+    viacep_url = f"https://viacep.com.br/ws/{cep}/json/"
     async with httpx.AsyncClient() as client:
+        viacep_response = await client.get(viacep_url)
+        viacep_data = viacep_response.json()
+
+        if 'erro' in viacep_data:
+            raise HTTPException(status_code=404, detail="CEP not found in ViaCEP")
+
+        address = f"{viacep_data.get('logradouro', '')}, {viacep_data['localidade']}, {viacep_data['uf']}, Brazil"
+
+        params = {
+            "q": address,
+            "format": "json",
+            "addressdetails": 1,
+            "limit": 1,
+            "countrycodes": "br",
+        }
+
+        url = "https://nominatim.openstreetmap.org/search"
         response = await client.get(url, params=params, headers=headers)
 
         if response.status_code != 200:
@@ -27,13 +36,12 @@ async def get_coordinates_from_cep(cep: str):
                 status_code=response.status_code, detail="Geocoding API failed"
             )
 
-        if response.status_code == 200:
-            data = response.json()
+        data = response.json()
 
-            if not data:
-                raise HTTPException(status_code=404, detail="CEP not found")
+        if not data:
+            raise HTTPException(status_code=404, detail="Address not found in geocoding service")
 
-            latitude = float(data[0]["lat"])
-            longitude = float(data[0]["lon"])
+        latitude = float(data[0]["lat"])
+        longitude = float(data[0]["lon"])
 
-            return latitude, longitude
+        return latitude, longitude
