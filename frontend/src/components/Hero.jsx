@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 export default function Hero() {
   return (
     <main className="flex flex-col items-center md:items-start justify-start text-center md:text-left px-6 py-56 max-w-screen-lg mx-auto mb-15">
@@ -7,28 +9,17 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg mt-6 font-montserrat animate-slideInLeft">
-          Um futuro tecnológico só é possível com responsabilidade ambiental. <br className="hidden md:inline"/>
-          Sustentabilidade também é pensar no impacto invisível dos eletrônicos <br className="hidden md:inline"/>
+          Um futuro tecnológico só é possível com responsabilidade ambiental. <br className="hidden md:inline" />
+          Sustentabilidade também é pensar no impacto invisível dos eletrônicos <br className="hidden md:inline" />
           que usamos todos os dias.
         </p>
 
         <div className="flex flex-col items-center md:flex-row md:items-start mt-6 gap-3 animate-slideInLeft">
-          <a href="#section1">
-            <button
-              className="font-krona cursor-pointer transition-all 
-                text-[#365B12] text-base font-semibold 
-                px-7 py-2 rounded-full 
-                bg-[var(--accent-green)] border-2 border-[var(--accent-green)]
-                hover:bg-[#6B8E23] hover:scale-105 hover:shadow-lg
-                active:scale-95"
-            >
-              Saiba Mais
-            </button>
-          </a>
+          <Button section="#section1" text="Saiba Mais" />
 
           <a
             href="#"
-            className="text-[var(--accent-green)] font-semibold text-lg font-montserrat relative after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-5px] after:h-[3px] after:w-0 after:bg-[var(--accent-green)] after:transition-all hover:after:w-full animate-slideInLeft md:ml-9"
+            className="text-[var(--text-white)] font-semibold text-lg font-montserrat relative after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-5px] after:h-[3px] after:w-0 after:bg-[var(--text-white)] after:transition-all hover:after:w-full animate-slideInLeft md:ml-9"
           >
             Código-fonte &gt;
           </a>

@@ -49,11 +49,12 @@ function Dropdown() {
 				</svg>
 			</button>
 
+			{/* SUGESTÃO: passar os itens do dropdown como props pois aí não é necessário ter valores hard-coded*/}
 			{open && (
 				<div className="absolute left-0 mt-2 w-64 bg-[var(--accent-green)] text-[#365B12] rounded-md shadow-lg z-50 font-montserrat font-semibold overflow-hidden">
 					<a href="#importancia" onClick={() => setOpen(false)} className="block px-4 py-2 hover:bg-[#a8c78a] transition-colors">Importância</a>
 					<a href="#ti-verde" onClick={() => setOpen(false)} className="block px-4 py-2 hover:bg-[#a8c78a] transition-colors">T.I. Verde</a>
-					<a href="#footer-contato" onClick={() => setOpen(false)} className="block px-4 py-2 hover:bg-[#a8c78a] transition-colors border-t border-[#365B12]/20 mt-1 pt-3">Direitos e Referências</a>
+					<a href="#footer-contato" onClick={() => setOpen(false)} className="block px-4 py-2 hover:bg-[#a8c78a] transition-colors">Direitos e Referências</a>
 				</div>
 			)}
 		</div>

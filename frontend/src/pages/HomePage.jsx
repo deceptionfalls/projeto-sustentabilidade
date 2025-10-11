@@ -6,7 +6,7 @@ import SectionThree from '../components/SectionThree';
 
 const HomePage = () => {
   return (
-    <div className="text-[var(--accent-green)]"> 
+    <div className="text-[var(--text-white)]">
       <Hero />
       <SectionOne />
       <SectionTwo />

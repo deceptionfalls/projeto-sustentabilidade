@@ -1,5 +1,5 @@
 # pylint: disable=import-error
-from typing import Optional
+from typing import List, Optional
 from pydantic import BaseModel
 
 
@@ -17,7 +17,7 @@ class EcopontoOutput(BaseModel):
     longitude: float
     hora_aberto: Optional[str] = None
     hora_fechado: Optional[str] = None
-    distancia: float
+    distancia: Optional[float] = None
     aceita_entulho: bool
     aceita_construcao: bool
     aceita_papel: bool
@@ -36,7 +36,5 @@ class LocationQuery(BaseModel):
     """Esta classe define e valida a informação de busca que a API receberá do frontend."""
 
     cep: Optional[str] = None
-    tipo_lixo_aceito: Optional[str] = None
-    excluir_tipo_lixo: Optional[str] = None
     cidade: Optional[str] = None
     estado: Optional[str] = None

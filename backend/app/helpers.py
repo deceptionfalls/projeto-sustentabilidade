@@ -41,42 +41,16 @@ def calcular_distancia(
 # TODO: Adicionar uma maneira de filtar locais pelo horário de abertura/fechamento
 def filtrar_pesquisa(
     db: Annotated[Session, Depends(get_db)],
-    tipo_lixo_aceito: Optional[str] = None,
-    excluir_tipo_lixo: Optional[str] = None,
     cidade: Optional[str] = None,
     estado: Optional[str] = None,
 ) -> List[Ecoponto]:
     """Função helper que processa filtros da pesquisa.
-    Suporta filtragem por cidade e estado e a exclusão
-    de materiais designados pelo usuário"""
-
-    opcoes = {
-        "entulho": Ecoponto.aceita_entulho,
-        "construcao": Ecoponto.aceita_construcao,
-        "papel": Ecoponto.aceita_papel,
-        "papelao": Ecoponto.aceita_papelao,
-        "vidro": Ecoponto.aceita_vidro,
-        "metal": Ecoponto.aceita_metal,
-        "movel": Ecoponto.aceita_movel,
-        "poda_arvore": Ecoponto.aceita_poda_arvore,
-        "bateria": Ecoponto.aceita_bateria,
-        "monitor": Ecoponto.aceita_monitor,
-        "celular": Ecoponto.aceita_celular,
-        "impressora": Ecoponto.aceita_impressora,
-    }
+    Suporta filtragem por cidade e estado"""
 
     db_query = db.query(Ecoponto)
 
-    if tipo_lixo_aceito is not None and tipo_lixo_aceito in opcoes:
-        coluna = opcoes[tipo_lixo_aceito]
-        db_query = db_query.filter(coluna == True)
-    if excluir_tipo_lixo is not None and excluir_tipo_lixo in opcoes:
-        coluna = opcoes[excluir_tipo_lixo]
-        db_query = db_query.filter(coluna == False)
-    if estado is not None:
-        db_query = db_query.filter(Ecoponto.estado == estado)
-    if cidade is not None:
-        db_query = db_query.filter(Ecoponto.cidade == cidade)
+    if estado and estado.strip(): db_query = db_query.filter(Ecoponto.estado == estado)
+    if cidade and cidade.strip(): db_query = db_query.filter(Ecoponto.cidade == cidade)
 
     return db_query.all()
 
@@ -88,13 +62,6 @@ def organizar_locais(
     for location in locations:
         location.distancia = calcular_distancia(
             user_lat, user_lon, location.latitude, location.longitude
-        )
-        # Conversão de tempo para string
-        location.hora_aberto = (
-            str(location.hora_fechado) if location.hora_fechado else None
-        )
-        location.hora_aberto = (
-            str(location.hora_aberto) if location.hora_aberto else None
         )
 
     return sorted(locations, key=lambda x: x.distancia)

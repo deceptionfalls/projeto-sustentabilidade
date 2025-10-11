@@ -2,6 +2,7 @@
 from typing import Annotated, List
 
 from fastapi import FastAPI, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 from .schemas import EcopontoOutput, LocationQuery
@@ -12,8 +13,18 @@ from .helpers import filtrar_pesquisa, organizar_locais
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
-# TODO: Documentação apropriada que realmente descreve o que cada função faz
+origins = [
+        "http://localhost",
+        "http://localhost:5173",
+]
 
+app.add_middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+)
 
 @app.get("/ecopontos/buscar/", response_model=List[EcopontoOutput])
 async def buscar_ecopontos(
@@ -22,10 +33,9 @@ async def buscar_ecopontos(
 ):
     """Busca localizações baseada no CEP e nos filtros em LocationQuery"""
 
+
     locais = filtrar_pesquisa(
         db,
-        query.tipo_lixo_aceito,
-        query.excluir_tipo_lixo,
         query.cidade,
         query.estado,
     )
@@ -33,8 +43,6 @@ async def buscar_ecopontos(
     for local in locais:
         local.hora_aberto = str(local.hora_aberto) if local.hora_aberto else None
         local.hora_fechado = str(local.hora_fechado) if local.hora_fechado else None
-        if not hasattr(local, "distancia"):
-            local.distancia = 0.0
 
     if query.cep is not None:
         user_lat, user_lon = await get_coordinates_from_cep(query.cep)
