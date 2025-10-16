@@ -45,7 +45,7 @@ const LocationCard = (
         <div className="bg-white/50 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="h-48 w-full bg-gray-200">
                 <img
-                    src={location.imagem_url || "/assets/bghome.jpg"}
+                    src={location.imagem_url || "/assets/pontosEco.jpg"}
                     alt="Imagem do Eco-Ponto"
                     className="w-full h-full object-cover"
                 />
