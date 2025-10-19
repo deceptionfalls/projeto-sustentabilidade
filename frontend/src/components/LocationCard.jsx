@@ -45,11 +45,7 @@ const LocationCard = (
         <div className="bg-white/50 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105">
             <div className="h-48 w-full bg-gray-200">
                 <img
-<<<<<<< HEAD
                     src={location.imagem_url || "/assets/pontosEco.jpg"}
-=======
-                    src={location.imagem_url || "/assets/pontoEco.jpg"}
->>>>>>> 9a62548 (feat: adicionar favicon.ico)
                     alt="Imagem do Eco-Ponto"
                     className="w-full h-full object-cover"
                 />
