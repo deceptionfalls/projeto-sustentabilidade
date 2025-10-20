@@ -1,7 +1,10 @@
+# ![Web Cover](/.github/assets/web_cover.png)
 
 # Projeto Sustentabilidade (GreenIT)
 
 Parte do Projeto de Extensão do quarto semestre do curso de CCO e SI da UniDrummond Tatuapé. Este website foi feito com a intenção de prestar serviços e servir como estudo para os participantes do projeto.
+
+Você pode acessar o website através [deste link](https://projeto-sustentabilidade.vercel.app/).
 
 ### Bibliotecas & APIs
 
