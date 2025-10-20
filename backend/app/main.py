@@ -1,9 +1,12 @@
 # pylint: disable=import-error
+import os
+
 from typing import Annotated, List
 
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from dotenv import load_dotenv
 
 from .models import Ecoponto
 from .schemas import EcopontoOutput, LocationQuery
@@ -11,12 +14,14 @@ from .database import Base, engine, get_db
 from .geocoding import get_coordinates_from_cep
 from .helpers import filtrar_pesquisa, organizar_locais
 
+load_dotenv()
+
+FRONTEND_URL = os.getenv("FRONTEND_URL")
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
 origins = [
-        "http://localhost",
-        "http://localhost:5173",
+        FRONTEND_URL
 ]
 
 app.add_middleware(
@@ -24,7 +29,7 @@ app.add_middleware(
         allow_origins=origins,
         allow_credentials=True,
         allow_methods=["*"],
-        allow_headers=["*"],
+        allow_headers=["Authorization", "Content-Type"],
 )
 
 @app.get("/ecopontos/buscar/", response_model=List[EcopontoOutput])
