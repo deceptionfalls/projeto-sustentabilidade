@@ -10,7 +10,7 @@ function useLocations(params) {
     setLoading(true);
     setError(null);
 
-    const requestURL = new URL("http://127.0.0.1:8000/ecopontos/buscar/");
+    const requestURL = new URL("http://deceptionfalls.pythonanywhere.com/ecopontos/buscar/");
 
     if (params.nome_local) {
       requestURL.searchParams.append("nome_local", params.nome_local);

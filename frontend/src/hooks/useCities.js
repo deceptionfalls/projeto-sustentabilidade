@@ -7,7 +7,7 @@ function useCities() {
   useEffect(() => {
     async function fetchCities() {
       try {
-        const response = await fetch("http://localhost:8000/cidades/");
+        const response = await fetch("http://deceptionfalls.pythonanywhere.com/cidades/");
         const data = await response.json();
         setCities(data);
       } catch (error) {
