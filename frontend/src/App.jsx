@@ -14,92 +14,88 @@ import EcoPontosPage from "./pages/EcoPontosPage";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 const AnimatedRoutes = () => {
-    const location = useLocation();
+  const location = useLocation();
 
-    const isEcopontosPage = location.pathname === "/ecopontos";
-    const CurrentNavbar = isEcopontosPage ? EcoNavbar : Navbar;
+  const isEcopontosPage = location.pathname === "/ecopontos";
+  const CurrentNavbar = isEcopontosPage ? EcoNavbar : Navbar;
 
-    const pageTransition = {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        exit: { opacity: 0 },
-        transition: { duration: 0.3 },
-    };
+  const pageTransition = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    transition: { duration: 0.3 },
+  };
 
-    return (
-        <div
-            className="min-h-screen bg-fixed bg-cover bg-center font-montserrat scroll-smooth"
-            style={{
-                backgroundImage: isEcopontosPage
-                    ? "none"
-                    : "url('/assets/bghome.jpg')",
-            }}
-        >
-            <CurrentNavbar />
-            <ScrollToTop />
-
-            <AnimatePresence mode="wait">
-                <Routes location={location} key={location.pathname}>
-                    <Route
-                        path="/"
-                        element={
-                            <motion.div
-                                {...pageTransition}
-                                className="min-h-screen"
-                            >
-                                <HomePage />
-                            </motion.div>
-                        }
-                    />
-
-                    <Route
-                        path="/ecopontos"
-                        element={
-                            <motion.div
-                                {...pageTransition}
-                                className="min-h-screen"
-                            >
-                                <EcoPontosPage />
-                            </motion.div>
-                        }
-                    />
-
-                    <Route
-                        path="*"
-                        element={
-                            <div className="text-center py-20">
-                                Página Não Encontrada (404)
-                            </div>
-                        }
-                    />
-                </Routes>
-            </AnimatePresence>
-
-            <Footer />
+  return (
+    <div className="relative min-h-screen font-montserrat scroll-smooth">
+      {!isEcopontosPage && (
+        <div className="fixed inset-0 -z-10 pointer-events-none">
+          <img
+            src="/assets/bghome.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ minWidth: "100%", minHeight: "100%" }}
+          />
         </div>
-    );
+      )}
+
+      <CurrentNavbar />
+      <ScrollToTop />
+
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <motion.div {...pageTransition} className="min-h-screen">
+                <HomePage />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/ecopontos"
+            element={
+              <motion.div {...pageTransition} className="min-h-screen">
+                <EcoPontosPage />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <div className="text-center py-20">Página Não Encontrada (404)</div>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
+
+      <Footer />
+    </div>
+  );
 };
 
 function App() {
-    const [isAppLoading, setIsAppLoading] = useState(true);
+  const [isAppLoading, setIsAppLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsAppLoading(false);
-        }, 500);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsAppLoading(false);
+    }, 500);
 
-        return () => clearTimeout(timer);
-    }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-    if (isAppLoading) {
-        return <LoadingSpinner />;
-    }
+  if (isAppLoading) {
+    return <LoadingSpinner />;
+  }
 
-    return (
-        <BrowserRouter>
-            <AnimatedRoutes />
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
+    </BrowserRouter>
+  );
 }
 
 export default App;
