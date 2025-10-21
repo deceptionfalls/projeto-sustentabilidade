@@ -61,9 +61,8 @@ html {
   word-break: normal;
 }
 
-/* Corrige bug do background com zoom no iOS Safari */
-@supports (-webkit-touch-callout: none) {
-  .bg-ios-fix {
-    background-attachment: scroll !important;
-  }
+/* Se o dispositivo for iOS, e tiver bg-ios-fix, remove o fixed */
+body.ios .bg-ios-fix {
+  background-attachment: scroll !important;
 }
+

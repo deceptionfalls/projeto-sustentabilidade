@@ -90,6 +90,12 @@ function App() {
 
         return () => clearTimeout(timer);
     }, []);
+    useEffect(() => {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+            document.body.classList.add('ios');
+        }
+    }, []);
 
     if (isAppLoading) {
         return <LoadingSpinner />;
