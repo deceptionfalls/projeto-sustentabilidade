@@ -28,7 +28,7 @@ const AnimatedRoutes = () => {
 
     return (
         <div
-            className="min-h-screen bg-fixed bg-cover bg-center font-montserrat scroll-smooth"
+            className="min-h-screen bg-fixed bg-cover bg-center font-montserrat scroll-smooth bg-ios-fix"
             style={{
                 backgroundImage: isEcopontosPage
                     ? "none"

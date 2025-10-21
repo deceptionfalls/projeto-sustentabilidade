@@ -60,3 +60,10 @@ html {
   overflow-wrap: break-word; 
   word-break: normal;
 }
+
+/* Corrige bug do background com zoom no iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .bg-ios-fix {
+    background-attachment: scroll !important;
+  }
+}
