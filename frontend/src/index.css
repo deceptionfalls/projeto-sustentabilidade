@@ -61,6 +61,3 @@ html {
   word-break: normal;
 }
 
-body.ios-device .bg-fixed {
-  background-attachment: scroll !important;
-}

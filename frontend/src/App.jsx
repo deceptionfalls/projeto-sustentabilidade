@@ -25,16 +25,15 @@ const AnimatedRoutes = () => {
         exit: { opacity: 0 },
         transition: { duration: 0.3 },
     };
-    const isIOS = typeof navigator !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent);
-
 
     return (
         <div
-            className="min-h-screen bg-fixed bg-cover bg-center font-montserrat scroll-smooth bg-ios-fix"
+            className="min-h-screen bg-fixed bg-cover bg-center font-montserrat scroll-smooth"
             style={{
-                backgroundImage: isEcopontosPage ? "none" : "url('/assets/bghome.jpg')",
-                backgroundAttachment: isIOS ? "scroll" : "fixed",
-                }}
+                backgroundImage: isEcopontosPage
+                    ? "none"
+                    : "url('/assets/bghome.jpg')",
+            }}
         >
             <CurrentNavbar />
             <ScrollToTop />
