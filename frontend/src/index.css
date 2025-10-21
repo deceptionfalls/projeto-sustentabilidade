@@ -61,8 +61,7 @@ html {
   word-break: normal;
 }
 
-/* Se o dispositivo for iOS, e tiver bg-ios-fix, remove o fixed */
-body.ios .bg-ios-fix {
+/* Override só para iOS: background-attachment vira scroll para evitar zoom */
+body.ios-device .bg-fixed {
   background-attachment: scroll !important;
 }
-

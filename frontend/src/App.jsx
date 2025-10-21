@@ -93,7 +93,7 @@ function App() {
     useEffect(() => {
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         if (isIOS) {
-            document.body.classList.add('ios');
+            document.body.classList.add("ios-device");
         }
     }, []);
 
