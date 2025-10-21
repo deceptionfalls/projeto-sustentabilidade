@@ -25,15 +25,16 @@ const AnimatedRoutes = () => {
         exit: { opacity: 0 },
         transition: { duration: 0.3 },
     };
+    const isIOS = typeof navigator !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
 
     return (
         <div
             className="min-h-screen bg-fixed bg-cover bg-center font-montserrat scroll-smooth bg-ios-fix"
             style={{
-                backgroundImage: isEcopontosPage
-                    ? "none"
-                    : "url('/assets/bghome.jpg')",
-            }}
+                backgroundImage: isEcopontosPage ? "none" : "url('/assets/bghome.jpg')",
+                backgroundAttachment: isIOS ? "scroll" : "fixed",
+                }}
         >
             <CurrentNavbar />
             <ScrollToTop />
@@ -89,12 +90,6 @@ function App() {
         }, 500);
 
         return () => clearTimeout(timer);
-    }, []);
-    useEffect(() => {
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        if (isIOS) {
-            document.body.classList.add("ios-device");
-        }
     }, []);
 
     if (isAppLoading) {

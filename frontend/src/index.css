@@ -61,7 +61,3 @@ html {
   word-break: normal;
 }
 
-/* Override só para iOS: background-attachment vira scroll para evitar zoom */
-body.ios-device .bg-fixed {
-  background-attachment: scroll !important;
-}
